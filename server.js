@@ -13,9 +13,6 @@ app.use((req,res,next)=>{
 	next();
 });
 
-app.use((req,res,next)=>{
-  res.render("maintenance.hbs");
-});
 app.get('/',(response,request)=>{
 
   request.render('home.hbs',{
@@ -23,6 +20,10 @@ app.get('/',(response,request)=>{
   	message:'welcome to my website',
   	year: new Date().getFullYear()
   });
+});
+
+app.use('/project',(response,request)=>{
+  request.render('project.hbs');
 });
 
 app.listen(port);
